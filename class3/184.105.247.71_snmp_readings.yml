@@ -1,0 +1,12 @@
+- !!python/tuple
+  - ccmHistoryRunningLastChanged
+  - '372377728'
+- !!python/tuple
+  - ccmHistoryRunningLastSaved
+  - '372452991'
+- !!python/tuple
+  - ccmHistoryStartupLastChanged
+  - '371326929'
+- !!python/tuple
+  - sysUptime
+  - '372459760'
