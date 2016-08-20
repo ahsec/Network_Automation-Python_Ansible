@@ -2,9 +2,12 @@
 """
 Using SNMPv3 create two SVG image files.  
 
-The first image file should graph the input and output octets on interface FA4 on pynet-rtr1 every five minutes for an hour.  Use the pygal library to create the SVG graph file. Note, you should be doing a subtraction here (i.e. the input/output octets transmitted during this five minute interval).  
+The first image file should graph the input and output octets on interface FA4 on pynet-rtr1 every 
+five minutes for an hour.  Use the pygal library to create the SVG graph file. Note, you should be 
+doing a subtraction here (i.e. the input/output octets transmitted during this five minute interval)
 
-The second SVG graph file should be the same as the first except graph the unicast packets received and transmitted.
+The second SVG graph file should be the same as the first except graph the unicast packets 
+received and transmitted.
 
 The relevant OIDs are as follows:
 
@@ -78,8 +81,10 @@ def main():
         outUnic.append(difference[3])
         initial_values = new_values
         
-    graph1 = create_graph_file("InOutOctect.svg", "Input/Output Octects", "Input Octects", inOct, "Output Octects", outOct, timeline)
-    graph2 = create_graph_file("InOutUnicast.svg", "Input/Output Unicast", "Input Unicast packets", inUnic, "Output Unicast Packets", outUnic, timeline)
+    graph1 = create_graph_file("InOutOctect.svg", "Input/Output Octects", "Input Octects", inOct, 
+                                "Output Octects", outOct, timeline)
+    graph2 = create_graph_file("InOutUnicast.svg", "Input/Output Unicast", "Input Unicast packets",
+                                inUnic, "Output Unicast Packets", outUnic, timeline)
 
     if (graph1 == True) and (graph2 == True):
         print "Graphic files created on local directory"
