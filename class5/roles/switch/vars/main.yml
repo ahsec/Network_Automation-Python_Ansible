@@ -1,0 +1,8 @@
+---
+switches: 
+  - {hostname: pynet-sw1, ip_addr: 9.1.1.1, default_gateway: 9.1.1.255, SNMP: true }
+  - {hostname: pynet-sw2, ip_addr: 9.2.1.2, default_gateway: 9.2.1.255, SNMP: false }
+  - {hostname: pynet-sw3, ip_addr: 9.3.1.3, default_gateway: 9.3.1.255, SNMP: true }
+  - {hostname: pynet-sw4, ip_addr: 9.4.1.4, default_gateway: 9.4.1.255, SNMP: false }
+  - {hostname: pynet-sw5, ip_addr: 9.5.1.5, default_gateway: 9.5.1.255, SNMP: true }
+
