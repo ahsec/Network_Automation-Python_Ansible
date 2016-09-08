@@ -1,0 +1,13 @@
+---
+- name: Exercise 3, week 06
+  hosts: arista
+
+  tasks: 
+    - name: Set Ethernet6 as a trunk interface on vlans 842, 180, 205
+      eos_switchport: name=Ethernet6 mode=trunk trunk_allowed_vlans=842,180,205 trunk_native_vlan=1
+        username={{ eapi_username }}
+        password={{ eapi_password }}
+        host={{ eapi_hostname }}
+        port={{ eapi_port }}
+        transport=https
+
