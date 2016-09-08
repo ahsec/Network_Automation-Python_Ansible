@@ -1,0 +1,16 @@
+---
+- name: Exercise 1, week 06
+  hosts: arista
+
+  tasks:
+  - name: Configure three VLANs on the Arista switch
+    eos_vlan: name={{ item.name }} vlanid={{ item.vlanid }} state=present
+          username={{ eapi_username }}
+          password={{ eapi_password }}
+          host={{ eapi_hostname }}
+          port={{ eapi_port }}
+          transport=https
+    with_items:
+      - {name: HUITZI, vlanid: 842}
+      - {name: QUETZA, vlanid: 180}
+      - {name: CUATLI, vlanid: 205}
