@@ -1,0 +1,15 @@
+---
+- name: Exercise 5, week 06
+  hosts: pynet-rtr1
+
+  tasks:
+    - name: Cisco IOS file transfer test
+      cisco_file_transfer:
+        source_file="/home/ahernandez/ANSIBLE/rnd_file"
+        dest_file=ahernandez_test_file
+        overwrite=true
+        enable_scp=true
+        host={{ host }}
+        port={{ port }}
+        username={{ username }}
+        password={{ password }}
