@@ -1,0 +1,33 @@
+---
+- name: Exercise 4, week 06
+  hosts: arista
+
+  tasks:
+    - name: Restore interface Ethernet6 to default config, description to None
+      eos_interface: name=Ethernet6 description="" 
+        username={{ eapi_username }}
+        password={{ eapi_password }}
+        host={{ eapi_hostname }}
+        port={{ eapi_port }}
+        transport=https
+
+    - name: Restore interface Ethernet6 to default config, access port on vlan 1
+      eos_switchport: name=Ethernet6 mode=access access_vlan=1 trunk_allowed_vlans=1-4094
+        username={{ eapi_username }}
+        password={{ eapi_password }}
+        host={{ eapi_hostname }}
+        port={{ eapi_port }}
+        transport=https
+
+    - name: Remove vlans 180, 205 and 842 from config
+      eos_vlan: vlanid={{ item }} state=absent
+        username={{  eapi_username }}
+        password={{ eapi_password }}
+        host={{ eapi_hostname }}
+        port={{ eapi_port }}
+        transport=https
+      with_items:
+        - 180
+        - 205
+        - 842
+
