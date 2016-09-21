@@ -2,8 +2,8 @@
 '''
 Using Arista's pyeapi, create a script that allows you to add a VLAN (both the VLAN ID
 and the VLAN name).
-Your script should first check that the VLAN ID is available and only add the VLAN if 
-it doesn't already exist.  Use VLAN IDs between 100 and 999.  You should be able to 
+Your script should first check that the VLAN ID is available and only add the VLAN if
+it doesn't already exist.  Use VLAN IDs between 100 and 999.  You should be able to
 call the script from the command line as follows:
 
    python eapi_vlan.py --name blue 100     # add VLAN100, name blue
@@ -12,8 +12,8 @@ If you call the script with the --remove option, the VLAN will be removed.
 
    python eapi_vlan.py --remove 100          # remove VLAN100
 '''
-import pyeapi
 import argparse
+import pyeapi
 
 ARISTA_DEV = 'pynet-sw2'
 
@@ -30,7 +30,7 @@ def verify_vlan(dev, identifier, to_search):
     and the vlan name or id number to serach for'''
 
     if identifier == 'name':
-        try :
+        try:
             # Setting return vlaue to True. This will change if command is unsucessful
             ret = True
             command = 'sh vlan name ' + to_search
@@ -40,13 +40,13 @@ def verify_vlan(dev, identifier, to_search):
 
     elif identifier == 'id':
         try:
-            # Setting return vlaue to True. This will change if command is unsucessful 
+            # Setting return vlaue to True. This will change if command is unsucessful
             ret = True
             command = 'sh vlan id ' + str(to_search)
             dev.enable(command)
         except pyeapi.eapilib.CommandError as e:
             ret = False
-    return ret 
+    return ret
 
 def main():
     parser = argparse.ArgumentParser(description='Adds or removes vlans on an Arista switch.'+\
@@ -65,15 +65,16 @@ def main():
         # Verify that vlan id and name doesn't currently exist on switch then add vlan
         vlan_name, vlan_id = args.name.split()
         # Verify VLAN exists by ID and NAME
-        ret_name = exist_name = verify_vlan(dev, 'name', vlan_name)
-        ret_id = exist_id = verify_vlan(dev, 'id', vlan_id)
+        ret_name = verify_vlan(dev, 'name', vlan_name)
+        ret_id = verify_vlan(dev, 'id', vlan_id)
 
-        if (ret_name == True) or (ret_id == True):
+        if (ret_name is True) or (ret_id is True):
             # If both name and vlan ID exists, Do nothing
-            print 'Vlan ID {} and/or name {} already exists. \nNothing to do.'.format(vlan_id, vlan_name)
+            print 'Vlan ID {} and/or name {} already exists. \nNothing to do.'.format(vlan_id,
+                                                                                      vlan_name)
         else:
             # ELSE cretae new VLAN
-            print "VLAN id {} and name {} doesn't exist... creating...".format(vlan_id, vlan_name) 
+            print "VLAN id {} and name {} doesn't exist... creating...".format(vlan_id, vlan_name)
             c_vlan_id = 'vlan ' + vlan_id
             c_vlan_name = 'name ' + vlan_name
             command = [c_vlan_id, c_vlan_name]
@@ -81,21 +82,20 @@ def main():
             dev.enable("write memory")
             print 'Vlan {} {} added to the {} device'.format(vlan_id, vlan_name, ARISTA_DEV)
 
-#        print vlan_name, vlan_id
     elif args.remove:
         dev = connect_arista(ARISTA_DEV)
         vlan_id = args.remove
         # Verify that vlan id exists before attempting to remove vlan
-        ret_id = exist_id = verify_vlan(dev, 'id', vlan_id)
-        if ret_id == True:
+        ret_id = verify_vlan(dev, 'id', vlan_id)
+        if ret_id is True:
         # Just found out of the vlans API and verification functionality ...
             vlans = dev.api('vlans')
             vlans.delete(vlan_id)
             dev.enable("write memory")
             print 'Vlan ID: {} has been removed from: {}'.format(vlan_id, ARISTA_DEV)
         else:
-            print "Vlan ID: {} doesn't exist on device: {}\nNothing to do.".format(vlan_id, ARISTA_DEV)
-            
+            print "Vlan ID: {} doesn't exist on device: {}\nNothing to do.".format(vlan_id,
+                                                                                   ARISTA_DEV)
 
 if __name__ == '__main__':
     main()
