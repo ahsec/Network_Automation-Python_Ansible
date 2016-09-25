@@ -1,0 +1,9 @@
+
+>>> 
+>>> pynet_fw_1.delete()
+>>> 
+>>> 
+>>> 
+>>> pynet_fw_2.delete()
+>>> 
+
