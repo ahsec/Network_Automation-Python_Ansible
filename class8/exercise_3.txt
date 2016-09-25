@@ -1,0 +1,30 @@
+
+>>> 
+>>> pynet_fw_1 = NetworkDevice(
+...     device_name='pynet-img1',
+...     device_type='cisco_asa',
+...     ip_address='1.1.9.9',
+...     port=22,
+...     )
+>>> pynet_fw_1.save
+<bound method NetworkDevice.save of <NetworkDevice: pynet-img1>>
+>>> 
+>>> 
+>>> 
+>>> pynet_fw_2, created = NetworkDevice.objects.get_or_create(
+...     device_name='pynet-img2',
+...     device_type='cisco_asa',
+...     ip_address='1.1.9.10',
+...     port=22,
+... )
+>>> 
+>>> 
+>>> pynet_fw_2
+<NetworkDevice: pynet-img2>
+>>> 
+>>> created
+False
+>>> pynet_fw_2.save()
+>>> 
+>>> 
+
