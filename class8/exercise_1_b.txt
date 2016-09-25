@@ -1,0 +1,17 @@
+
+>>> rtr_creds, std_creds = creds
+>>> 
+>>> for dev in devices:
+...   if 'rtr' in dev.device_name:
+...     dev.credentials = rtr_creds
+...   elif 'srx' in dev.device_name:
+...     dev.credentials = rtr_creds
+...   else:
+...     dev.credentials = std_creds
+...   dev.save()
+... 
+>>> 
+>>> 
+>>> 
+>>> 
+
