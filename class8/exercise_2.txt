@@ -1,0 +1,15 @@
+>>> 
+>>> for dev in net_devices:
+...   if 'cisco' in dev.device_type:
+...     dev.vendor = 'Cisco'
+...   elif 'arista' in dev.device_type:
+...     dev.vendor = 'Arista'
+...   else:
+...     dev.vendor = 'Juniper'
+...   dev.save()
+... 
+>>> 
+>>> 
+>>> 
+
+
