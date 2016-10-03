@@ -1,0 +1,71 @@
+Test out your package from the Python interpreter shell. Make sure you can invoke your three functions 
+using 'import mytest'
+
+(applied_python)[ahernandez@ip-172-30-0-5 class9]$ python
+Python 2.7.12 (default, Sep  1 2016, 22:14:00) 
+[GCC 4.8.3 20140911 (Red Hat 4.8.3-9)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mytest
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'mytest']
+>>> 
+>>> 
+>>> mytest.func1
+<function func1 at 0x7fae03499050>
+>>> mytest.func1()
+From simple.py
+>>> mytest.func2()
+From whatever.py
+>>> mytest.func3()
+From world.py
+>>> 
+>>> 
+
+
+
+Test out your package from the Python interpreter shell. Make sure you can invoke your three functions 
+using 'from mytest import func1, func2, func3'
+
+(applied_python)[ahernandez@ip-172-30-0-5 class9]$ python
+Python 2.7.12 (default, Sep  1 2016, 22:14:00) 
+[GCC 4.8.3 20140911 (Red Hat 4.8.3-9)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from mytest import *
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'func1', 'func2', 'func3', 'simple', 'whatever', 'world']
+>>> 
+>>> 
+>>> func1()
+From simple.py
+>>> func2()
+From whatever.py
+>>> func3()
+From world.py
+>>> simple.func1()
+From simple.py
+>>> whatever.func2()
+From whatever.py
+>>> world.func3()
+From world.py
+>>> 
+
+
+(applied_python)[ahernandez@ip-172-30-0-5 class9]$ python
+Python 2.7.12 (default, Sep  1 2016, 22:14:00) 
+[GCC 4.8.3 20140911 (Red Hat 4.8.3-9)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+>>> from mytest import func1, func2, func3
+>>> 
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'func1', 'func2', 'func3']
+>>> 
+>>> func1()
+From simple.py
+>>> func2()
+From whatever.py
+>>> func3()
+From world.py
+>>> 
+>>> 
+
