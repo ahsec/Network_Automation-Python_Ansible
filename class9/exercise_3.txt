@@ -1,0 +1,22 @@
+Test out __all__ using 'from mytest import *'. Verify that you can directly 
+execute func1(), func2(), func3(). Once again do this from the directory containing ./mytest.
+
+(applied_python)[ahernandez@ip-172-30-0-5 class9]$ python
+Python 2.7.12 (default, Sep  1 2016, 22:14:00) 
+[GCC 4.8.3 20140911 (Red Hat 4.8.3-9)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+>>> 
+>>> from mytest import *
+>>> dir()
+['__builtins__', '__doc__', '__name__', '__package__', 'func1', 'func2', 'func3']
+>>> 
+>>> 
+>>> func1()
+From simple.py
+>>> func2()
+From whatever.py
+>>> func3()
+From world.py
+>>> 
+
