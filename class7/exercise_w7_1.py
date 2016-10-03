@@ -29,10 +29,9 @@ def main():
     out = out['interfaces']
     # Will start unpacking the relevant values per each interface found in the out interfaces
     for interface, values in out.items():
-        in_oct = values.get('interfaceCounters', {}).get('in_oct')
-        out_oct = values.get('interfaceCounters', {}).get('out_oct')
+        in_oct = values.get('interfaceCounters', {}).get('inOctets')
+        out_oct = values.get('interfaceCounters', {}).get('outOctets')
         print "Interface: {}   - In Octects: {}   - Out Octects: {} ".format(interface,
                                                                              in_oct, out_oct)
-
 if __name__ == '__main__':
     main()
