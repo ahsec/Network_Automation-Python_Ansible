@@ -1,0 +1,31 @@
+
+(applied_python)[ahernandez@ip-172-30-0-5 class9]$ pwd
+/home/ahernandez/GIT_FOLDER/PyNet_Class_Exercises/class9
+
+(applied_python)[ahernandez@ip-172-30-0-5 class9]$ ls -lR
+.:
+total 4
+drwxrwxr-x 2 ahernandez ahernandez 4096 Sep 28 19:25 mytest
+
+./mytest:
+total 12
+-rw-rw-r-- 1 ahernandez ahernandez 124 Sep 28 19:24 simple.py
+-rw-rw-r-- 1 ahernandez ahernandez 126 Sep 28 19:25 whatever.py
+-rw-rw-r-- 1 ahernandez ahernandez 123 Sep 28 19:25 world.py
+
+
+(applied_python)[ahernandez@ip-172-30-0-5 mytest]$ python
+Python 2.7.12 (default, Sep  1 2016, 22:14:00) 
+[GCC 4.8.3 20140911 (Red Hat 4.8.3-9)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import mytest
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named mytest
+>>> import ./mytest
+  File "<stdin>", line 1
+    import ./mytest
+           ^
+SyntaxError: invalid syntax
+>>> 
+
