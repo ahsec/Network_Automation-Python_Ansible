@@ -1,0 +1,26 @@
+#
+# Modify your PYTHONPATH such that the directory containing ./mytest 
+# is now on your PYTHONPATH. Verify this in sys.path.
+#
+
+# Current Value of PYTHONPATH System Variable 
+(applied_python)[ahernandez@ip-172-30-0-5 class9]$ echo $PYTHONPATH
+/home/ahernandez/DJANGOX/djproject/
+
+# Value I want to add to PYTHONPATH
+(applied_python)[ahernandez@ip-172-30-0-5 class9]$ pwd
+/home/ahernandez/GIT_FOLDER/PyNet_Class_Exercises/class9
+
+# Adding value
+(applied_python)[ahernandez@ip-172-30-0-5 class9]$ PYTHONPATH=$PYTHONPATH:/home/ahernandez/GIT_FOLDER/PyNet_Class_Exercises/class9
+
+# Verifying new value of PYTHONPATH System Variable from the Command line
+(applied_python)[ahernandez@ip-172-30-0-5 class9]$ echo $PYTHONPATH
+/home/ahernandez/DJANGOX/djproject/:/home/ahernandez/GIT_FOLDER/PyNet_Class_Exercises/class9
+
+# Verifying new vlaue from the python command line
+>>> import sys
+>>> sys.path
+['', '/home/ahernandez/DJANGOX/djproject', '/home/ahernandez/GIT_FOLDER/PyNet_Class_Exercises/class9', '/home/ahernandez/applied_python/local/lib64/python2.7/site-packages', '/home/ahernandez/applied_python/local/lib/python2.7/site-packages', '/home/ahernandez/applied_python/lib64/python2.7', '/home/ahernandez/applied_python/lib/python2.7', '/home/ahernandez/applied_python/lib64/python2.7/site-packages', '/home/ahernandez/applied_python/lib/python2.7/site-packages', '/home/ahernandez/applied_python/lib64/python2.7/lib-dynload', '/usr/lib64/python2.7', '/usr/lib/python2.7']
+>>> 
+
