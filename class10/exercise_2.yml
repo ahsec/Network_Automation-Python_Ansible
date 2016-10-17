@@ -1,0 +1,15 @@
+---
+- name: Modify Juniper Configuration 
+  hosts: pynet-sf-srx
+  tasks:
+    - name: Test NETCONF connectivity
+      wait_for: host={{ ansible_ssh_host }} port=830
+
+    - name: Modify system hostname
+      junos_install_config:
+        host={{ ansible_ssh_host }}
+        file=exercise_2_new_hostname.conf
+        overwrite=false
+        user={{ juniper_user }}
+        passwd={{ juniper_passwd }}
+
