@@ -1,0 +1,16 @@
+---
+# Execute using the following argument: ansible-playbook -M ~/JUNIPER/library/ 
+- name: Modify Juniper Configuration - XML File
+  hosts: pynet-sf-srx
+  tasks:
+    - name: Test NETCONF connectivity
+      wait_for: host={{ ansible_ssh_host }} port=830
+
+    - name: Modify system hostname
+      junos_install_config:
+        host={{ ansible_ssh_host }}
+        file=exercise_3_new_hostname.xml
+        overwrite=false
+        user={{ juniper_user }}
+        passwd={{ juniper_passwd }}
+
