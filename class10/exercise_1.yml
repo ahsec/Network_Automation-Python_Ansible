@@ -1,0 +1,16 @@
+---
+- hosts: pynet-sf-srx
+  tasks:
+    - name: Establishing connection to Juniper SRX
+      wait_for: host={{ ansible_ssh_host }} port=830
+
+    - name: Retrieve Juniper Configuration
+      junos_get_config:
+        host={{ ansible_ssh_host }}
+        user={{ juniper_user }}
+        passwd={{ juniper_passwd }}
+        dest="{{ inventory_hostname }}.xml"
+
+    - name: Display all variables/facts known for a host
+      debug: var=hostvars[inventory_hostname]
+
