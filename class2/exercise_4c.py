@@ -7,8 +7,8 @@ MIB2 sysName and sysDescr.
 from snmp_helper import snmp_get_oid, snmp_extract
 
 OID_TO_POLL = ['1.3.6.1.2.1.1.5.0', '1.3.6.1.2.1.1.1.0']
-DEVS_TO_POLL = ['184.105.247.70', '184.105.247.71']
-COMMUNITY_STRING = 'galileo'
+DEVS_TO_POLL = ['x.x.x.x', 'y.y.y.y']
+COMMUNITY_STRING = 'not-public'
 SNMP_PORT = 161
 
 class SNMP_DEV():
