@@ -8,9 +8,9 @@ import time
 import exercise_03
 
 def main():
-    username = 'pyclass'
-    password = '88newclass'
-    ip_address = '184.105.247.70'
+    username = 'USERNAME'
+    password = 'PASSWD'
+    ip_address = 'x.x.x.x'
 
     dev = exercise_03.NetDevice(ip_address, username, password)
 
