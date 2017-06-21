@@ -51,9 +51,9 @@ class NetDevice():
         print self.conn.read_very_eager()
 
 def main():
-    ip_addr = "184.105.247.70"
-    username = "pyclass"
-    password = "88newclass"
+    ip_addr = "x.x.x.x"
+    username = "USERNAME"
+    password = "PASSWD"
 
     net_dev1 = NetDevice(ip_addr, username, password)
 
