@@ -14,7 +14,6 @@ hostname pynet-rtr1
 !
 logging buffered 50000
 no logging console
-enable secret 5 $1$5999$djwfej9Mq99917x9SDgAC.
 !
 aaa new-model
 !
@@ -53,7 +52,6 @@ multilink bundle-name authenticated
 license udi pid CISCO881-SEC-K9 sn FTX1000000X
 !
 !
-username pyclass privilege 15 secret 5 $1$CQCe$poonB1jFHYQAWt/3eXub41
 !
 !
 !
