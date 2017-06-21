@@ -22,11 +22,11 @@ import pygal
 import time
 import pygal
 
-USER_NAME = 'pysnmp'
-AUTH_KEY = 'galileo1'
-ENCRY_KEY = 'galileo1'
+USER_NAME = 'USERNAME'
+AUTH_KEY = 'AUTH_PASS1'
+ENCRY_KEY = 'AUTH_PASS2'
 SNMP_PORT = 161
-DEV_TO_MONITOR = '184.105.247.70'
+DEV_TO_MONITOR = 'x.x.x.x'
 POLL_TIME = 300 #secs or 5 min 
 
 def compare_in_out(initial_values, new_values):
