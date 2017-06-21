@@ -8,7 +8,7 @@ system {
     time-zone America/New_York;
     location building "San Francisco";
     root-authentication {
-        encrypted-password "$1$97eUhFdU$86IvOyci.RPxQ8aIwpv41.";
+        encrypted-password "PASSWD";
     }
     name-server {
         208.67.222.222;
@@ -19,7 +19,7 @@ system {
             uid 2000;
             class super-user;
             authentication {
-                encrypted-password "$1$xWmYoDJ4$paIkCzT9IbizmJbJiPD80/";
+                encrypted-password "PASSWD";
             }
         }
     }
@@ -254,8 +254,8 @@ firewall {
             term BLOCK-SPOOFED {
                 from {
                     source-address {
-                        17.255.254.0/23;
-                        17.255.252.0/22;
+                        x.x.x.x/23;
+                        x.x.x.x/22;
                     }
                 }
                 then {
