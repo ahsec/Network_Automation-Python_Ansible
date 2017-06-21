@@ -30,10 +30,10 @@ import time
 import email_helper
 
 SCAN_TIME = 60 #secs
-DEVS_TO_MONITOR = ['184.105.247.71']
-USER_NAME = 'pysnmp'
-AUTH_KEY = 'galileo1'
-ENCRY_KEY = 'galileo1'
+DEVS_TO_MONITOR = ['x.x.x.x']
+USER_NAME = 'USERNAME'
+AUTH_KEY = 'AUTHKEY1'
+ENCRY_KEY = 'AUTHKEY2'
 SNMP_PORT = 161
 CONTROL_FILE = 'snmp_readings.yml'
 
@@ -76,10 +76,10 @@ def compare(old_values, new_values):
     return ret
 
 def send_email_change(has_changed):
-    recipient = 'ahsec.7@gmail.com'
+    recipient = 'rcv_example@example.com'
     subject = 'Device Configuration Change'
     message = has_changed + "\n Regards, \nAngel" 
-    sender = 'angel_hernandez@twb-tech.com'
+    sender = 'sndr_example@example.com'
     email_helper.send_mail(recipient, subject, message, sender)
 
 class SNMP_v3_DEVICE(object):
