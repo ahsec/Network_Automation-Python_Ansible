@@ -1,8 +1,8 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 """
 (optional - challenge question)
-Convert the code that Kirk B, wrote to a class-based solution (i.e. convert over from 
-functions to a class with methods).
+Convert the code that Kirk B, wrote to a class-based solution (i.e.
+convert over from functions to a class with methods).
 """
 
 import telnetlib
@@ -18,8 +18,8 @@ class NetDevice():
         self.ip_address = ip_address
         self.username = username
         self.password = password
-        self.connect()    
-    
+        self.connect()
+
     def connect(self):
         # exception handling for telnet connections
         try:
@@ -28,7 +28,7 @@ class NetDevice():
             sys.exit("Connection timed-out")
 
     def login(self):
-        # read until will stop when it finds the specified pattern on the output or when the 
+        # read until will stop when it finds the specified pattern on the output or when the
         # connection timesout TELNET_TIMEOUT
         self.output = self.conn.read_until("sername:", TELNET_TIMEOUT)
         # conn.write will send a command through the connection
@@ -47,7 +47,7 @@ class NetDevice():
         self.cmd = self.cmd.rstrip()
         self.conn.write(cmd + '\n')
         time.sleep(1)
-        # red_very_eager() will read as much output as possible 
+        # red_very_eager() will read as much output as possible
         print self.conn.read_very_eager()
 
 def main():
@@ -68,5 +68,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
