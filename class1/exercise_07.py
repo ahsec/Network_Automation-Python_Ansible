@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 import yaml
 import json
 from pprint import pprint as pp
@@ -28,11 +28,10 @@ def main():
     yaml_content = read_yaml()
     print 'Content of YAML file {}: '.format(YAML_FILENAME)
     pp(yaml_content)
-    print '======================================================='
+    print '='*30
     json_content = read_json()
     print 'Content of JSON file {}: ' .format(JSON_FILENAME)
     pp(json_content)
 
 if __name__ == '__main__':
     main()
-

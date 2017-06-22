@@ -3,8 +3,8 @@ import yaml
 import json
 
 '''
-Python script that creates a list with one of the elements being a dictionary with 2 keys
-The script will then write the list to both a JSON and YAML file
+Python script that creates a list with one of the elements being a dictionary
+with 2 keys. The script will then write the list to both a JSON and YAML file
 '''
 
 YAML_FILENAME = 'yml_out.yml'

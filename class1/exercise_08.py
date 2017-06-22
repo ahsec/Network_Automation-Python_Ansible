@@ -2,8 +2,9 @@
 from ciscoconfparse import CiscoConfParse
 
 '''
-This script will parse a Cisco configuration file, find all the lines that begin with "crypto map CRYPTO" 
-and for each crypto map will print out its children
+This script will parse a Cisco configuration file, find all the lines that
+begin with "crypto map CRYPTO", for each crypto map will print out its
+children.
 '''
 
 CISCO_FILENAME = "cisco_ipsec.txt"
@@ -23,4 +24,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
