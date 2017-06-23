@@ -1,0 +1,76 @@
+# Class 4 Exercises.
+
+#### * exercise_1.py *
+Create an Ansible playbook that generates five switch configurations based
+upon the below partial switch configuration.
+The hostname, ip_addr, and default_gateway should be unique for each switch.
+
+```
+>>>> access_switch.j2 file <<<<
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime msec localtime show-timezone
+!
+hostname {{item.hostname}}
+!
+logging buffered 32000
+no logging console
+enable secret 0 {{item.secret}}
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport access vlan {{item.access_vlan}}
+ switchport mode access
+ spanning-tree portfast
+!
+interface FastEthernet0/24
+ switchport access vlan {{item.access_vlan}}
+ switchport mode access
+ spanning-tree portfast
+!
+interface Vlan1
+ ip address {{item.ip_addr}} 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway {{item.default_gateway}}
+snmp-server community {{item.snmp_community}} RO
+!
+line con 0
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+end
+>>>> end access_switch.j2 file <<<<
+```
+
+#### * exercise_2.py *
+Expand upon the above template by adding a Jinja2 if conditional.  
+The if conditional should add the below SNMPv3 commands and associated ACL
+(i.e. if SNMPv3, then the below commands are added into the configuration file):
+```
+>>>>
+access-list 98 remark *** SNMP ***
+access-list 98 permit any
+!
+snmp-server view VIEWSTD iso included
+snmp-server group READONLY v3 priv read VIEWSTD access 98
+snmp-server user pysnmp READONLY v3 auth sha auth_key priv aes 128 encrypt_key
+>>>>
+```
+
+#### * exercise_3.py *
+In the above access_switch.j2 template use a Jinja2 for loop to create all of
+the interfaces from FastEthernet 0/1 to FastEthernet 0/24.  Each of the
+interfaces should have the following configuration:
+```
+>>>>
+interface FastEthernet 0/X                    # where X is the interface number
+ switchport access vlan {{item.access_vlan}}                
+ switchport mode access
+ spanning-tree portfast  
+>>>>
+```
