@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 '''
-Use Netmiko to change the logging buffer size (logging buffered <size>) and to disable console 
-logging (no logging console) from a file on both pynet-rtr1 and pynet-rtr2 
-(see 'Errata and Other Info, item #4).
+Use Netmiko to change the logging buffer size (logging buffered <size>) and to
+disable console logging (no logging console) from a file on both pynet-rtr1
+and pynet-rtr2 (see 'Errata and Other Info, item #4).
 
-*Netmiko supports a method (send_config_from_file) that allows you to execute configuration 
-commands directly from a file. For example, if you had a set of commands in a file called 
-'config_file.txt', then you could execute those commands via the SSH channel as follows:
- 
+*Netmiko supports a method (send_config_from_file) that allows you to execute
+configuration commands directly from a file. For example, if you had a set of
+commands in a file called 'config_file.txt', then you could execute those
+commands via the SSH channel as follows:
+
          net_connect.send_config_from_file(config_file='config_file.txt')
 '''
 from netmiko import ConnectHandler
@@ -21,7 +22,7 @@ def main():
     print 'Username:',
     usern = raw_input()
     passwd = getpass()
-    
+
     for i in range(len(DEVICES)):
         try:
             net_dev = {
@@ -31,12 +32,12 @@ def main():
                         'password':passwd
                     }
 
-            print '>>>>>>>>>>>>>>>>> DEVICE: {} <<<<<<<<<<<<<<<<<<'.format(DEVICES[i])
-            # Initiating netmiko connection    
+            print '>>>>>>>>>>>>> DEVICE: {} <<<<<<<<<<<<<<'.format(DEVICES[i])
+            # Initiating netmiko connection
             net_connect = ConnectHandler(**net_dev)
             resp = net_connect.find_prompt()
             print resp
-        
+
             # Deploying config commands from file
             resp = net_connect.send_config_from_file(config_file=CONF_COMMANDS_FILE)
             print resp
@@ -47,4 +48,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

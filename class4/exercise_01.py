@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 """
-1. Use Paramiko to retrieve the entire 'show version' output from pynet-rtr2. 
+1. Use Paramiko to retrieve the entire 'show version' output from pynet-rtr2.
 """
 
 import paramiko
 from getpass import getpass
 import time
 
-NET_DEVS = ['184.105.247.71'] 
+NET_DEVS = ['184.105.247.71']
 COMMANDS_TO_RUN = ['show version']
 
 class ParamikoDev(object):
@@ -16,11 +16,12 @@ class ParamikoDev(object):
         self.usern = usern
         self.passwd = passwd
         self.portn = portn
-        
-        try: 
+
+        try:
             ssh_pre = paramiko.SSHClient()
             ssh_pre.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            ssh_pre.connect(self.ip_address, username=self.usern, password=self.passwd, port=self.portn)
+            ssh_pre.connect(self.ip_address, username=self.usern,
+                            password=self.passwd, port=self.portn)
             self.ssh = ssh_pre.invoke_shell()
             self.ssh.keep_this = ssh_pre
             resp = self.ssh.recv(9999)
@@ -51,8 +52,6 @@ def main():
         for command in COMMANDS_TO_RUN:
             resp = p_dev.exec_command(command)
             print resp
-            
+
 if __name__ == '__main__':
     main()
-
-
