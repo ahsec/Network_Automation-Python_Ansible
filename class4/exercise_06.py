@@ -14,7 +14,7 @@ def main():
     print 'Username:',
     usern = raw_input()
     passwd = getpass()
-    
+
     for i in range(len(DEVICES)):
         net_dev = {
             'device_type':DEV_TYPE[i],
@@ -22,8 +22,8 @@ def main():
             'username':usern,
             'password':passwd
             }
-        print '\n>>>>>>>>>>>>>>>>>> DEVICE: {} <<<<<<<<<<<<<<<<<<<'.format(DEVICES[i])
-        # Initiating netmiko connection    
+        print '\n>>>>>>>>>> DEVICE: {} <<<<<<<<<<<'.format(DEVICES[i])
+        # Initiating netmiko connection
         net_connect = ConnectHandler(**net_dev)
         resp = net_connect.find_prompt()
         print resp,
@@ -35,4 +35,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

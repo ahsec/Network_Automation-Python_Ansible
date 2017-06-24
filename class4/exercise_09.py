@@ -27,7 +27,7 @@ COMMAND_TO_RUN = 'sh arp'
 
 
 def print_output(results):
-    
+
     print "\nSuccessful devices:"
     for a_dict in results:
         for identifier,v in a_dict.iteritems():
@@ -54,7 +54,7 @@ def worker_show_version(a_device, mp_queue):
     '''
     Return a dictionary where the key is the device identifier
     Value is (success|fail(boolean), return_string)
-    '''    
+    '''
 
     try:
         a_device['port']
@@ -90,7 +90,8 @@ def main():
 
     for a_device in all_devices:
 
-        p = multiprocessing.Process(target=worker_show_version, args=(a_device, mp_queue))
+        p = multiprocessing.Process(target=worker_show_version, args=(a_device,
+                                                                      mp_queue))
         processes.append(p)
         # start the work process
         p.start()
@@ -106,8 +107,6 @@ def main():
 
     print_output(results)
 
-    
+
 if __name__ == '__main__':
     main()
-
-

@@ -3,7 +3,8 @@
 Repeat exercise #6 except use processes.
 
 Optional bonus question--use a queue to get the output data back from the child
-processes in question #7. Print this output data to the screen in the main process.
+processes in question #7. Print this output data to the screen in the main
+process.
 '''
 from datetime import datetime
 from multiprocessing import Process, Queue
@@ -38,8 +39,8 @@ def execute_command(cmd, dev, q):
 
 def main():
     '''
-    Use Netmiko to connect to each of the devices in the database. Execute 'show version' on each
-    device.
+    Use Netmiko to connect to each of the devices in the database. Execute
+    'show version' on each device.
     Calculate the amount of time required to do this.
     '''
     django.setup()
@@ -57,7 +58,8 @@ def main():
         proc.join()
 
     # Will read the content of the Queue and print out the output to the screen
-    # We're not printing out the output until the enD ! This makes the exit more ordered and pretty.
+    # We're not printing out the output until the end ! This makes the exit
+    # ordered and pretty.
     while not q.empty():
         my_dict = q.get()
         for k, v in my_dict.iteritems():

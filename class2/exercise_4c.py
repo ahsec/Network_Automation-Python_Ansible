@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
-script that connects to both routers (pynet-rtr1 and pynet-rtr2) and prints out both the 
-MIB2 sysName and sysDescr.
+script that connects to both routers (pynet-rtr1 and pynet-rtr2) and prints out
+both the MIB2 sysName and sysDescr.
 """
 
 from snmp_helper import snmp_get_oid, snmp_extract
@@ -16,7 +16,7 @@ class SNMP_DEV():
         self.ip_address = ip_address
         self.community = community
         self.snmp_port = snmp_port
-        
+
     def poll_print_oid(self, oid):
         # Combines both snmp_get_oid and snmp_extract into one class method
         self.oid = oid
@@ -35,4 +35,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

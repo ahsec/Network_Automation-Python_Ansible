@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 '''
-Use Netmiko to enter into configuration mode on pynet-rtr2. 
-Also use Netmiko to verify your state (i.e. that you are currently in configuration mode).
+Use Netmiko to enter into configuration mode on pynet-rtr2.
+Also use Netmiko to verify your state (i.e. that you are currently in
+configuration mode).
 '''
 from netmiko import ConnectHandler
 from getpass import getpass
@@ -14,7 +15,7 @@ def main():
     print 'Username:',
     usern = raw_input()
     passwd = getpass()
-    
+
     for dev in DEVICES:
         net_dev = {
             'device_type':DEV_TYPE,
@@ -22,7 +23,7 @@ def main():
             'username':usern,
             'password':passwd
             }
-        # Initiating netmiko connection    
+        # Initiating netmiko connection
         net_connect = ConnectHandler(**net_dev)
         resp = net_connect.find_prompt()
         print resp
@@ -30,10 +31,9 @@ def main():
         net_connect.config_mode()
         # Verifying we're in config mode
         resp = net_connect.check_config_mode()
-        print 'Entered Config mode? {}'.format(resp) 
+        print 'Entered Config mode? {}'.format(resp)
         # Exiting config mode
         net_connect.exit_config_mode()
 
 if __name__ == '__main__':
     main()
-
