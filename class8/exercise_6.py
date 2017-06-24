@@ -37,8 +37,8 @@ def execute_command(cmd, dev):
 
 def main():
     '''
-    Use Netmiko to connect to each of the devices in the database. Execute 'show version' on each
-    device.
+    Use Netmiko to connect to each of the devices in the database. Execute
+    'show version' on each device.
     Calculate the amount of time required to do this.
     '''
     django.setup()
@@ -46,7 +46,8 @@ def main():
 
     devs = NetworkDevice.objects.all()
     for dev in devs:
-        my_thread = threading.Thread(target=execute_command, args=(COMMAND, dev,))
+        my_thread = threading.Thread(target=execute_command, args=(COMMAND,
+                                                                   dev,))
         my_thread.start()
 
     main_thread = threading.currentThread()

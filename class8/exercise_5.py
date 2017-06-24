@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 '''
-Use Netmiko to connect to each of the devices in the database. Execute 'show version' on each
-device.
+Use Netmiko to connect to each of the devices in the database. Execute
+'show version' on each device.
 Calculate the amount of time required to do this.
 
-* Your results will be more reliable if you use Netmiko's send_command_expect() method.
-There is an issue with the Arista vEOS switches and Netmiko's send_command() method.
+* Your results will be more reliable if you use Netmiko's send_command_expect()
+method.
+There is an issue with the Arista vEOS switches and Netmiko's send_command()
+method.
 '''
 from datetime import datetime
 import django
@@ -36,8 +38,8 @@ def execute_command(cmd, dev):
 
 def main():
     '''
-    Use Netmiko to connect to each of the devices in the database. Execute 'show version' on each
-    device.
+    Use Netmiko to connect to each of the devices in the database. Execute
+    'show version' on each device.
     Calculate the amount of time required to do this.
     '''
     django.setup()
