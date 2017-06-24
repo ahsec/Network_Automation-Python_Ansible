@@ -1,4 +1,4 @@
-# Class 6 Exercises.
+# Class 7 Exercises.
 
 #### * exercise_w7_1.py *
 Use Arista's eAPI to obtain 'show interfaces' from the switch. Parse the
