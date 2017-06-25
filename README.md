@@ -1,7 +1,7 @@
-# Ansible Network Automation Exercises
+# Network Automation Course Exercises
 
 This repository was created in order to store my exercise solutions for the
-Ansible Network Automation Course.
+Network Automation Course.
 
 The current course syllabus and information can be found at:  [PyNet Ansible Class](https://pynet.twb-tech.com/class-ansible.html)
 
